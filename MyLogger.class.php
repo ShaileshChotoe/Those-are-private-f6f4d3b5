@@ -7,29 +7,33 @@ class MyLogger
         echo "$type: $message \n";
     }
 
+    private function logWithTime($message)
+    {
+        echo date("[Y-m-t G:i] ")  . $message . "\n";
+    }
+
     function warning($message)
     {
-        echo "WARNING: $message \n";
+        $this->logWithTime("WARNING: $message");
     }
 
     function error($message)
     {
-        echo "ERROR: $message \n";
+        $this->logWithTime("ERROR: $message");
     }
 
     function info($message)
     {
-        echo "INFO: $message \n";
+        $this->logWithTime("INFO: $message");
     }
 
     function debug($message)
     {
-        echo "DEBUG: $message \n";
+        $this->logWithTime("DEBUG: $message");
     }
 }
 
 $logger = new MyLogger();
 $logger->error('dit is een error');
-$logger->log('Hello world!', 'INFO');
 
 ?>
